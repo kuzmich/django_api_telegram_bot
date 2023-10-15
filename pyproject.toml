@@ -4,12 +4,9 @@ version = "1.0.0"
 description = "Simple weather API and Telegram bot."
 dependencies = [
     "Django",
+    "requests",
 ]
 
 [build-system]
 requires = ["flit_core<4"]
 build-backend = "flit_core.buildapi"
-
-[tool.pyright]
-venvPath = "/home/alexey/venvs"
-venv = "weather_api_bot"
