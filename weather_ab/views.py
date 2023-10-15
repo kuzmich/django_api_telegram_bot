@@ -1,4 +1,5 @@
 from django.http import HttpResponseNotFound
+from django.core.cache import cache
 from django.conf import settings
 from django.shortcuts import render
 import requests
@@ -18,20 +19,23 @@ def request_yandex_weather(coords):
 
 
 def weather(request):
+    # TODO Что делать, если город не указан, timeout, город неизвестен, нет данных?
+
     city = request.GET.get('city').lower()
     all_coords = settings.CITIES_COORDS
 
     if city in all_coords:
         coords = all_coords[city]
 
-        weather = request_yandex_weather(coords)
-        weather['city'] = city
+        if not (weather := cache.get(city)):
+            weather = request_yandex_weather(coords)
+            weather['city'] = city.title()
+            cache.set(city, weather)
 
         return render(
             request,
             "weather.txt",
             weather,
-            # {'city': city, 'temp': 7, 'pressure': 712, 'wind': 5},
             content_type='text/plain; charset=utf-8'
         )
     else:

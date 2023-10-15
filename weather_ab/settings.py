@@ -33,6 +33,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
+        "LOCATION": Path(INSTANCE_DIR) / 'cache',
+        "TIMEOUT": 60 * 30,
+    }
+}
+
 
 # Application definition
 
