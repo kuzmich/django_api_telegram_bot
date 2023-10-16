@@ -7,6 +7,9 @@ dependencies = [
     "requests",
 ]
 
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "local_settings"
+
 [build-system]
 requires = ["flit_core<4"]
 build-backend = "flit_core.buildapi"

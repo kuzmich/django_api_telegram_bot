@@ -7,7 +7,7 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'weather_ab.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'local_settings')
     os.environ.setdefault('INSTANCE_DIR', str(Path(__file__).resolve().parent))
     try:
         from django.core.management import execute_from_command_line

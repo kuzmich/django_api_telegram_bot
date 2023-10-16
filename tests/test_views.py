@@ -13,6 +13,12 @@ def test_weather_view_caching(client, settings, tmp_path):
 
         resp = client.get('/weather?city=Иркутск')
         assert resp.status_code == 200
+
+        text = resp.content.decode(resp.charset)
+        assert '99°C' in text
+        assert '33 м/с' in text
+        assert '888 мм' in text
+
         mrequests.get.assert_called_once()
 
         resp = client.get('/weather?city=Иркутск')

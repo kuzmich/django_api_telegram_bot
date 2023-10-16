@@ -1,0 +1,13 @@
+import os
+from pathlib import Path
+
+os.environ.setdefault('INSTANCE_DIR', str(Path(__file__).resolve().parent))
+
+from weather_ab.settings import *
+
+YANDEX_API_KEY = '<KEY_HERE>'
+BOT_TOKEN = '<TOKEN_HERE>'
+TG_API_BASE_URL = 'https://api.telegram.org/'
+
+DEBUG = False
+ALLOWED_HOSTS = ['<HOST_HERE>']
