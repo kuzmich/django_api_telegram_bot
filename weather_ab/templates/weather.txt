@@ -1,4 +1,4 @@
-Погода в {{ city }}:
-Темп. {{ temp }}C
-Давл. {{ pressure }}
-Ветер {{ wind }}
+{{ city }}:
+{{ temp_icon }} {{ temp }}°C
+{{ press_icon }} {{ pressure }} мм.
+{{ wind_icon }} {{ wind }} м/с

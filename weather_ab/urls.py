@@ -21,5 +21,6 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('weather', views.weather, name='api-weather')
+    path('weather', views.weather, name='api-weather'),
+    path('tg-hook', views.tg_update_hook, name='tg-hook'),
 ]

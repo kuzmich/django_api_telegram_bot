@@ -1,8 +1,6 @@
 from unittest.mock import patch
-from weather_ab import views
 
 
-# @patch('weather_ab.views.requests')
 def test_weather_view_caching(client, settings, tmp_path):
     settings.CACHES['default']['LOCATION'] = tmp_path
 
